@@ -176,20 +176,6 @@
 	int32 positionIterations = 3;
 	_world->Step(event.passedTime, velocityIterations, positionIterations);
     
-#ifndef DRAW_BOX2D_WORLD
-    // Update block's position and rotation
-    for (b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
-	{
-		if (b->GetUserData() != NULL)
-        {
-			SPImage *block = (SPImage*)b->GetUserData();
-            block.x = b->GetPosition().x * PTM_RATIO;
-            block.y = b->GetPosition().y * PTM_RATIO;
-            block.rotation = b->GetAngle();
-        }
-	}
-#endif
-    
 }
 
 
